@@ -1,7 +1,9 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% block content %}
 
 {% load crispy_forms_tags %}
+
+
 
 <div class="masthead">
     <div class="container">
@@ -24,6 +26,8 @@
         </div>
     </div>
 </div>
+
+
 
 <div class="container">
     <div class="row">
@@ -105,6 +109,11 @@
             <div class="card-body">
                 <!-- For later -->
                 {% if commented %}
+
+                <div class="alert alert-success" role="alert">
+                    Congratulations, you have successfully posted a comment
+                </div>
+
                 <div class="alert alert-success" role="alert">
                     Your comment is awaiting approval
                 </div>
