@@ -4,6 +4,7 @@ Docstrings R us!!
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Post
+from .forms import CommentForm
 
 
 class PostList(generic.ListView):
@@ -31,8 +32,9 @@ class PostDetail(View):
         context = {
             'post': post,
             'comments': comments,
-            'liked': liked
+            'liked': liked,
+            'comment_form': CommentForm()
         }
-        if post.like.filter(id=self.request.user.id).exists():
+        if post.likes.filter(id=self.request.user.id).exists():
             liked = True
         return render(request, 'post_detail.html', context)
